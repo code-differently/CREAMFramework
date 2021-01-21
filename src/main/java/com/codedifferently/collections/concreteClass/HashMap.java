@@ -1,6 +1,6 @@
 package com.codedifferently.collections.concreteClass;
 
-import java.util.Map;
+import com.codedifferently.collections.Interface.Map;
 
 public class HashMap<K,V>  implements Map<K,V> {
     @Override

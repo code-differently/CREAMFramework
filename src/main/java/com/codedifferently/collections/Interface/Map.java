@@ -8,5 +8,6 @@ public interface Map<K,V> {
     public boolean containsValue(Object Value);
     public boolean isEmpty();
     public V remove(Object key);
+    public void clear();
 
 }
