@@ -1,12 +1,21 @@
 package com.codedifferently.collections.linkedlist;
 
-public class LinkNode {
-    Integer data;
+public class LinkNode <T>{
+    T data;
     LinkNode nextNode;
-    //Node prevNode; add doubly linked
+    //LinkNode prevNode; //add doubly linked
 
-    LinkNode(Integer data) {
+    LinkNode(T data) {
         this.data = data;
         nextNode = null;
+        //prevNode = null;
+    }
+
+    @Override
+    public String toString() {
+        return "LinkNode{" +
+                "data=" + data +
+                ", nextNode=" + nextNode +
+                '}';
     }
 }
