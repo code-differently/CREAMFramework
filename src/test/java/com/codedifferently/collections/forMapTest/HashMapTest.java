@@ -2,10 +2,11 @@ package com.codedifferently.collections.forMapTest;
 
 import org.junit.Before;
 
-public class HashMap {
+public class HashMapTest {
 
     @Before
     public void setup(){
 
     }
+
 }

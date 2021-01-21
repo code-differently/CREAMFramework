@@ -1,7 +1,7 @@
-package com.codedifferently.collections;
+package com.codedifferently.collections.Interface;
 
-public interface Map {
-    public void get();
+public interface Map<A> {
+    public void get(A input);
     public void put();
     public void size();
     public void containsKey();

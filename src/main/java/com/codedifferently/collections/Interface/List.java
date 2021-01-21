@@ -1,4 +1,4 @@
-package com.codedifferently.collections;
+package com.codedifferently.collections.Interface;
 
 public interface List {
     public void get();
