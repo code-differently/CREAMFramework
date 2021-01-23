@@ -115,6 +115,7 @@ public class ArrayListTest {
         //when
         boolean  actual=  arrayList.isListEmpty();
         boolean  expected =true;
+
         //Then
         Assert.assertEquals(expected,actual);
 
