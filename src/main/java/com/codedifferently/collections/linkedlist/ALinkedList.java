@@ -35,7 +35,7 @@ public class ALinkedList <T> {
             }
 
         } catch (ListHasNoElementsException e) {
-            logger.warning(e + "ALinkedList Has No Values.");
+            logger.warning(e + " ALinkedList Has No Values.");
         }
         return null;
     }
@@ -56,7 +56,7 @@ public class ALinkedList <T> {
             currentNode = currentNode.getNextNode();
         }
 
-        if(currentNode != null && previousNode != null) {                     //// TODO: 1/23/21 check this is working properly
+        if(currentNode != null && previousNode != null) {
             previousNode.setNextNode(currentNode.getNextNode());
             logger.info(key + " has been deleted.");
         }
@@ -90,7 +90,7 @@ public class ALinkedList <T> {
 
     }
 
-    public LinkNode<T> getLastNode() throws ListHasNoElementsException{
+    public LinkNode<T> getLastNode() {
         try {
             if(this.head == null) throw new ListHasNoElementsException();
             LinkNode<T> current = this.head;
@@ -101,7 +101,7 @@ public class ALinkedList <T> {
                 current = current.getNextNode();
             }
         } catch (ListHasNoElementsException e) {
-            logger.info(e + "List Has No Head.");
+            logger.info(e + " ALinkedList Has No Values.");
         }
         return null;
     }
