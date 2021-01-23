@@ -41,7 +41,7 @@ public class ArrayList<E> implements List<E> {
     }
 
     @Override
-    public boolean isEmptyList() {
-        return false;
+    public boolean isListEmpty() {
+        return true;
     }
 }

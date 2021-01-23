@@ -102,4 +102,22 @@ public class ArrayListTest {
 
     }
 
+    @Test
+    public void isListEmptyTest(){
+
+        //Given
+        int num1=3;
+        int num2=4;
+
+        arrayList.addElement(num1);
+        arrayList.addElement(num2);
+
+        //when
+        boolean  actual=  arrayList.isListEmpty();
+        boolean  expected =true;
+        //Then
+        Assert.assertEquals(expected,actual);
+
+    }
+
 }
