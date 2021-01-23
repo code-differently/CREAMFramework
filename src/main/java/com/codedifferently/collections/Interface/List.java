@@ -6,5 +6,6 @@ public interface List<E> {
     public E remove(E index);
     public int size();
     public boolean contains(Object element);
+    public boolean isEmpty();
 
 }

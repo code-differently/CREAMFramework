@@ -3,8 +3,18 @@ package com.codedifferently.collections.concreteClass;
 import com.codedifferently.collections.Interface.Map;
 
 public class HashMap<K,V>  implements Map<K,V> {
+
+//    private E[] array;
     @Override
     public int size() {
+//        HashMap<K,V> input=new HashMap<K,V>();
+//
+//        for(int i=0;i<;i++){
+//            if(map[i]==null){
+//                return 0;
+//            }
+//            return map.length;
+//        }
         return 0;
     }
 

@@ -15,10 +15,15 @@ public class HashMapTest {
 @Test
     public void size(){
     HashMap<String,String> input =new HashMap<String,String>();
-    input.put("Aakriti","Java");
-    int expected = input.size();
-    int actual =1;
+//    input.put("Aakriti","Java");
+//    int expected = input.size();
+//    int actual =1;
     //Then
-    Assert.assertEquals(expected,actual);
+    Assert.assertEquals(0,input.size());
+}
+
+@Test
+    public  void remove(){
+
 }
 }

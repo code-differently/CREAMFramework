@@ -7,11 +7,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class ArrayListTest {
-    List arrayList;
+  List arrayList;
+  int interl;
+  Integer inte;
+
 @Before
     public void setup(){
 
-    ArrayList<Integer> arrayList = new ArrayList<Integer>();
+    arrayList = new ArrayList<Integer>();
 }
 
 @Test
@@ -29,4 +32,38 @@ public class ArrayListTest {
     Assert.assertEquals(expected,actual);
 
 }
+
+    @Test
+//when the list is not empty
+    public void add(){
+
+        //Given
+        int num=3;
+
+        arrayList.add(num);
+        //when
+        boolean  actual=  arrayList.contains(num);
+        boolean expected =true;
+        //Then
+        Assert.assertEquals(expected,actual);
+
+    }
+
+    @Test
+
+    public void remove(){
+
+        //Given
+        int num=3;
+
+        arrayList.add(num);
+        //when
+        boolean  actual=  arrayList.contains(num);;
+        boolean expected =true;
+        //Then
+        Assert.assertEquals(expected,actual);
+
+    }
+
+
 }

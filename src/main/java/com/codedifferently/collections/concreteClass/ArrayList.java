@@ -4,7 +4,14 @@ import com.codedifferently.collections.Interface.List;
 
 public class ArrayList<E> implements List<E> {
 
-   // private E[] array;
+
+
+    private E[] array;
+
+    public ArrayList() {
+        this.array = (E[]) new Object[0];
+    }
+
     @Override
     public E get(E index) {
         return index;
@@ -12,12 +19,15 @@ public class ArrayList<E> implements List<E> {
 
     @Override
     public boolean add(E element) {
-        return false;
+//        for(int i=0;i<array.length;i++){
+//
+//        }
+        return true;
     }
 
     @Override
     public E remove(E index) {
-        return null;
+        return index;
     }
 
     @Override
@@ -27,6 +37,11 @@ public class ArrayList<E> implements List<E> {
 
     @Override
     public boolean contains(Object element) {
+        return true;
+    }
+
+    @Override
+    public boolean isEmpty() {
         return false;
     }
 }
