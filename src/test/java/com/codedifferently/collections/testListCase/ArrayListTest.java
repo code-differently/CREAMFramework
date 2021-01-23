@@ -57,12 +57,30 @@ public class ArrayListTest {
         arrayList.add(num);
 
         //when
-        boolean  actual=  arrayList.contains(num);;
+        boolean  actual=  arrayList.contains(num);
         boolean expected =true;
         //Then
         Assert.assertEquals(expected,actual);
 
     }
 
+
+    @Test
+    public void size(){
+
+        //Given
+        int num1=3;
+        int num2=4;
+
+        arrayList.add(num1);
+        arrayList.add(num2);
+
+        //when
+        int  actual=  arrayList.size();
+        int  expected =0;
+        //Then
+        Assert.assertEquals(expected,actual);
+
+    }
 
 }
