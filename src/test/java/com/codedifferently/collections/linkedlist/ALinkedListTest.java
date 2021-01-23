@@ -1,25 +1,28 @@
 package com.codedifferently.collections.linkedlist;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.LinkedList;
-
-import static org.junit.Assert.*;
-
 public class ALinkedListTest {
 
-    ALinkedList list;
-    LinkNode node;
+    ALinkedList<Integer> listInt;
+    ALinkedList<String> listStr;
 
     @Before
     public void setUp() {
-        node = new LinkNode(10);
-        list = new ALinkedList();
+        listInt = new ALinkedList<Integer>();
+        listStr = new ALinkedList<String>();
     }
 
     @Test
-    public void insert() {
+    public void addNodeWhenNoItemsArePresent() {
+        listInt.add(10);
+        Integer actual = (Integer) listInt.get(10);
+        Integer expected = 10;
+        System.out.println(actual);
+
+        Assert.assertEquals(expected, actual);
     }
 
     @Test

@@ -1,26 +1,20 @@
 package com.codedifferently.collections;
 
 import com.codedifferently.collections.linkedlist.ALinkedList;
-import com.codedifferently.collections.linkedlist.exceptions.ListHasNoElementsException;
 
 public class CreamFramework {
-    public static void main(String[] args) throws ListHasNoElementsException {
+    public static void main(String[] args) throws Exception {
 
-        ALinkedList list = new ALinkedList();
+        ALinkedList<Integer> list = new ALinkedList<Integer>();
 
-        list = ALinkedList.insert(list, 1);
-        list = ALinkedList.insert(list, 2);
-        list = ALinkedList.insert(list, 3);
-        list = ALinkedList.insert(list, 4);
-        list = ALinkedList.insert(list, null);
-        list = ALinkedList.insert(list, "Thing");
+        list.add(100);
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
 
-        ALinkedList.countNodes(list.getHead());
-
-        ALinkedList.printALinkedList(list);
-
-        System.out.println(ALinkedList.getLastNode(list).toString());
-
+        //list.printALinkedList();
+        System.out.println(list.get(3));
 
     }
 }
