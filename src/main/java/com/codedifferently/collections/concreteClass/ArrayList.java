@@ -13,12 +13,12 @@ public class ArrayList<E> implements List<E> {
     }
 
     @Override
-    public E get(E index) {
+    public E getElement(E index) {
         return index;
     }
 
     @Override
-    public boolean add(E element) {
+    public boolean addElement(E element) {
 //        for(int i=0;i<array.length;i++){
 //
 //        }
@@ -26,22 +26,22 @@ public class ArrayList<E> implements List<E> {
     }
 
     @Override
-    public E remove(E index) {
+    public E removeElement(E index) {
         return index;
     }
 
     @Override
-    public int size() {
+    public int sizeOfList() {
         return 0;
     }
 
     @Override
-    public boolean contains(Object element) {
+    public boolean containsElement(Object element) {
         return true;
     }
 
     @Override
-    public boolean isEmpty() {
+    public boolean isEmptyList() {
         return false;
     }
 }

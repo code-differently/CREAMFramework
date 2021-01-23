@@ -19,14 +19,14 @@ public class ArrayListTest {
 
 @Test
 //when the list is not empty
-    public void get(){
+    public void getElement(){
     ArrayList<Integer> arrayList = new ArrayList<Integer>();
     //Given
     int num=2;
 
-    arrayList.add(num);
+    arrayList.addElement(num);
     //when
-    int expected = (int) arrayList.get(num);
+    int expected = (int) arrayList.getElement(num);
     int actual =2;
     //Then
     Assert.assertEquals(expected,actual);
@@ -34,14 +34,14 @@ public class ArrayListTest {
 }
 
     @Test
-    public void add(){
+    public void addElementTest(){
 
         //Given
         int num=3;
 
-        arrayList.add(num);
+        arrayList.addElement(num);
         //when
-        boolean  actual=  arrayList.contains(num);
+        boolean  actual=  arrayList.containsElement(num);
         boolean expected =true;
         //Then
         Assert.assertEquals(expected,actual);
@@ -49,15 +49,15 @@ public class ArrayListTest {
     }
 
     @Test
-    public void remove(){
+    public void removeElementTest(){
 
         //Given
         int num=3;
 
-        arrayList.add(num);
+        arrayList.removeElement(num);
 
         //when
-        boolean  actual=  arrayList.contains(num);
+        boolean  actual=  arrayList.containsElement(num);
         boolean expected =true;
         //Then
         Assert.assertEquals(expected,actual);
@@ -72,12 +72,31 @@ public class ArrayListTest {
         int num1=3;
         int num2=4;
 
-        arrayList.add(num1);
-        arrayList.add(num2);
+        arrayList.addElement(num1);
+        arrayList.addElement(num2);
 
         //when
-        int  actual=  arrayList.size();
+        int  actual=  arrayList.sizeOfList();
         int  expected =0;
+        //Then
+        Assert.assertEquals(expected,actual);
+
+    }
+
+
+    @Test
+    public void containsElementTest(){
+
+        //Given
+        int num1=3;
+        int num2=4;
+
+        arrayList.addElement(num1);
+        arrayList.addElement(num2);
+
+        //when
+        boolean  actual=  arrayList.containsElement(num1);
+        boolean  expected =true;
         //Then
         Assert.assertEquals(expected,actual);
 
