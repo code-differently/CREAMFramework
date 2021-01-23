@@ -34,7 +34,6 @@ public class ArrayListTest {
 }
 
     @Test
-//when the list is not empty
     public void add(){
 
         //Given
@@ -50,13 +49,13 @@ public class ArrayListTest {
     }
 
     @Test
-
     public void remove(){
 
         //Given
         int num=3;
 
         arrayList.add(num);
+
         //when
         boolean  actual=  arrayList.contains(num);;
         boolean expected =true;
