@@ -1,15 +1,18 @@
 package com.codedifferently.collections.linkedlist;
 
+import com.codedifferently.collections.AList;
 import com.codedifferently.collections.linkedlist.exceptions.ListHasNoElementsException;
 
 import java.util.logging.Logger;
 
-public class ALinkedList <T> {
+public class ALinkedList <T> implements AList {
     static Logger logger = Logger.getGlobal();
-    private LinkNode head;                                                  //this is the first element in our Linked List
+    private LinkNode head;
+    //this is the first element in our Linked List
 
-    public Boolean add(T data) {
-        LinkNode<T> node = new LinkNode<>(data);                            //Create a new node
+    @Override
+    public Boolean add(Object data) {
+        LinkNode<T> node = new LinkNode(data);                            //Create a new node
         node.setNextNode(null);                                             //Set the next node to null
 
         if(this.head == null) this.head = node;                             //if we have no head(its null)then we set our new node as the head.
@@ -23,7 +26,9 @@ public class ALinkedList <T> {
         return true;
     }
 
-    public Object get(T data) {                                        // Should retrieve the object being passed in - or null. If no items are present throw an exception
+
+    @Override
+    public Object get(Object data) {                                        // Should retrieve the object being passed in - or null. If no items are present throw an exception
         try {
             if(this.head == null) throw new ListHasNoElementsException();   // If the list has no elements throw our custom exception.
 
@@ -41,26 +46,27 @@ public class ALinkedList <T> {
     }
 
 
-    public LinkNode<T> remove(T key) {
+    @Override
+    public LinkNode<T> remove(Object data) {
         LinkNode currentNode = this.head;
-        LinkNode<T> previousNode = null;
+        LinkNode previousNode = null;
 
-        if(currentNode != null && currentNode.getData().equals(key)) {          // If the key is the head node
+        if(currentNode != null && currentNode.getData().equals(data)) {          // If the key is the head node
             this.head = currentNode.getNextNode();
-            logger.info(key + " has been deleted.");
+            logger.info(data + " has been deleted.");
             return currentNode;
         }
 
-        while (currentNode != null && currentNode.getData() != key) {          // If the key is not the head node, move along searching until...
+        while (currentNode != null && currentNode.getData() != data) {          // If the key is not the head node, move along searching until...
             previousNode = currentNode;
             currentNode = currentNode.getNextNode();
         }
 
         if(currentNode != null && previousNode != null) {
             previousNode.setNextNode(currentNode.getNextNode());
-            logger.info(key + " has been deleted.");
+            logger.info(data + " has been deleted.");
         }
-        else logger.info(key + " not found.");
+        else logger.info(data + " not found.");
 
         return currentNode;
     }
@@ -80,7 +86,6 @@ public class ALinkedList <T> {
         return count;
     }
 
-
     public void printALinkedList() {
         LinkNode currentNode = this.head;
         while(currentNode != null) {
@@ -90,7 +95,7 @@ public class ALinkedList <T> {
 
     }
 
-    public LinkNode<T> getLastNode() {
+    public LinkNode<T> getLast() {
         try {
             if(this.head == null) throw new ListHasNoElementsException();
             LinkNode<T> current = this.head;
@@ -104,6 +109,34 @@ public class ALinkedList <T> {
             logger.info(e + " ALinkedList Has No Values.");
         }
         return null;
+    }
+
+    @Override
+    public void clear() {
+        this.head = null;
+    }
+
+    @Override
+    public Boolean isEmpty() {
+        return head == null;
+    }
+
+    @Override
+    public Boolean contains(Object data) {
+        try {
+            if(this.head == null) throw new ListHasNoElementsException();   // If the list has no elements throw our custom exception.
+
+            LinkNode currentNode = this.head;
+
+            while (currentNode != null) {
+                if (currentNode.getData() == data) return true;
+                currentNode = currentNode.getNextNode();
+            }
+
+        } catch (ListHasNoElementsException e) {
+            logger.warning(e + " ALinkedList Has No Values.");
+        }
+        return false;
     }
 
     public LinkNode<T> getHeadNode() {

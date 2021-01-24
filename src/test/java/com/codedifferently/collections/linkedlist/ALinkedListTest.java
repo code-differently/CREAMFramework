@@ -138,7 +138,7 @@ public class ALinkedListTest {
         listStr.add("Good DAY");
         listStr.add("Sir");
 
-        String actual = listStr.getLastNode().getData();
+        String actual = listStr.getLast().getData();
         String expected = "Sir";
         System.out.println(actual);
 
@@ -147,7 +147,7 @@ public class ALinkedListTest {
 
     @Test
     public void getLastNodeNoNodesPresentEXCEPTION() {
-        LinkNode<String> actual = listStr.getLastNode();
+        LinkNode<String> actual = listStr.getLast();
         String expected = null;
         System.out.println(actual);
 
@@ -161,6 +161,81 @@ public class ALinkedListTest {
         System.out.println(actual);
 
         Assert.assertEquals("Test get(element) No Nodes <String>", expected, actual);
+    }
+
+    @Test
+    public void clearMultipleNodes() {
+        listStr.add("Is");
+        listStr.add("This");
+        listStr.add("Not A Beautiful");
+        listStr.add("Unit Test?");
+        listStr.add("Hello");
+        listStr.add("Tariq");
+
+        listStr.clear();
+
+        Object expected = null;
+        Object actual = listStr.get("Hello");
+        System.out.println(actual);
+
+        Assert.assertEquals("Test clear() Multiple Nodes <String>", expected, actual);
+    }
+
+
+    @Test
+    public void testIsEmptyWhenEmpty() {
+        listStr.clear();
+
+        Boolean expected = true;
+        Boolean actual = listStr.isEmpty();
+        System.out.println(actual);
+
+        Assert.assertEquals("Test isEmpty()", expected, actual);
+    }
+
+    @Test
+    public void testIsEmptyWhenNodesArePresent() {
+        listStr.add("Unit Test?");
+        listStr.add("Hello");
+        listStr.add("Tariq");
+
+        Boolean expected = false;
+        Boolean actual = listStr.isEmpty();
+        System.out.println(actual);
+
+        Assert.assertEquals("Test isEmpty()", expected, actual);
+    }
+
+    @Test
+    public void doesListContainAValueTrue() {
+        listStr.add("Is");
+        listStr.add("This");
+        listStr.add("Not A Beautiful");
+        listStr.add("Unit Test?");
+        listStr.add("Hello");
+        listStr.add("Tariq");
+
+        Boolean expected = true;
+        Boolean actual = listStr.contains("Hello");
+        System.out.println(actual);
+
+        Assert.assertEquals("Test clear() Multiple Nodes <String>", expected, actual);
+    }
+
+    @Test
+    public void doesListContainAValueFalse() {
+        listStr.add("Is");
+        listStr.add("This");
+        listStr.add("Not A Beautiful");
+        listStr.add("Unit Test?");
+        listStr.add("Hello");
+        listStr.add("Tariq");
+
+        Boolean expected = false;
+        Boolean actual = listStr.contains("wutang");
+        System.out.println(actual);
+
+        Assert.assertEquals("Test clear() Multiple Nodes <String>", expected, actual);
     }
 
 }

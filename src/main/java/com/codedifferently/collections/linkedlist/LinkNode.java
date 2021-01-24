@@ -15,10 +15,6 @@ public class LinkNode <T>{
         return data;
     }
 
-    public void setData(T data) {
-        this.data = data;
-    }
-
     public LinkNode getNextNode() {
         return nextNode;
     }
