@@ -26,7 +26,7 @@ public class ArrayListTest {
 
     arrayList.addElement(num);
     //when
-    int expected = (int) arrayList.getElement(num);
+    int expected = (int) arrayList.getElementByIndex(num);
     int actual =2;
     //Then
     Assert.assertEquals(expected,actual);

@@ -13,8 +13,12 @@ public class ArrayList<E> implements List<E> {
     }
 
     @Override
-    public E getElement(E index) {
-        return index;
+    public E getElementByIndex(int index) {
+if(array[index]!=null){
+    return array[index];
+}else {
+    throw new IndexOutOfBoundsException();
+}
     }
 
     @Override
@@ -26,22 +30,40 @@ public class ArrayList<E> implements List<E> {
     }
 
     @Override
-    public E removeElement(E index) {
-        return index;
+    public E removeElement(E element) {
+        return element;
     }
 
     @Override
     public int sizeOfList() {
-        return 0;
+        for(int i=0;i<array.length;i++){
+            if(array[i]!=null){
+                return array.length;
+            }
+
+        }
+        throw new IndexOutOfBoundsException() ;
     }
 
     @Override
     public boolean containsElement(Object element) {
+        for (int i=0;i<array.length;i++){
+            if(array.equals(element)){
+                return true;
+            }else {
+                return false;
+            }
+        }
         return true;
     }
 
     @Override
     public boolean isListEmpty() {
-        return true;
+        if (array == null) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }
