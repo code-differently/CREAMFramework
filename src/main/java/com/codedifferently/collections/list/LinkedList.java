@@ -1,4 +1,4 @@
-package com.codedifferently.collections.listTest;
+package com.codedifferently.collections.list;
 
 import com.codedifferently.collections.Collection;
 import com.codedifferently.collections.interfaces.List;
