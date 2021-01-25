@@ -3,38 +3,61 @@ package com.codedifferently.collections.set;
 import com.codedifferently.collections.Collection;
 import com.codedifferently.collections.interfaces.Set;
 
-import java.util.TreeSet;
+import java.util.ArrayList;
 
 public class SortedSet<E> extends Collection implements Set {
 
+    private ArrayList<E> list;
+    private int size;
+    private Object E;
 
-    @Override
-    public void add() {
-
+    public SortedSet(){
+        list = new ArrayList<>();
+        size = 0;
+        this.E = "";
+    }
+    public int size(){
+        return 0;
     }
 
-    @Override
-    public void contains() {
-
+    public ArrayList<E> getList() {
+        return list;
     }
 
-    @Override
+    public Object add(){
+        list.add(0,(E)"Thing");
+        list.add(1,(E)"Any string will do");
+        list.add(2, (E)"Another one");
+        return null;
+    }
+
     public void indexOf() {
 
     }
 
     public E remove() {
+        list.remove(0);
         return null;
     }
 
-
-    @Override
-    public void contains(Object o) {
-
+    public int get(int index) {
+        return index;
     }
 
-    @Override
-    public void get(int index) {
-
+    public boolean isEmpty() {
+        if (list.size() == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
+    public Object[] toArray(){
+        return new Object[0];
+    }
+
+    public boolean contains(){
+        return true;
+    }
+
+
 }

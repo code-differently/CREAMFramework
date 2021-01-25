@@ -1,6 +1,7 @@
 package com.codedifferently.collections;
 
-public class Collection {
+public class Collection<E> {
+
     public Collection() {
     }
 

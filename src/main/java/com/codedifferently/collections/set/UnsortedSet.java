@@ -3,44 +3,46 @@ package com.codedifferently.collections.set;
 import com.codedifferently.collections.Collection;
 import com.codedifferently.collections.interfaces.Set;
 
-import java.util.HashSet;
 
 public class UnsortedSet<E> extends Collection implements Set {
 
-    HashSet<E> hSet = new HashSet<E>();
+
+
 
     public UnsortedSet() {
         super();
     }
 
-    @Override
-    public void add() {
+//   public Set add() {
+//    Set<E> s = uSet.add();
+//       return s;
+//   }
 
+    public Object add() {
+        return null;
     }
 
-    @Override
-    public void contains() {
+    public boolean contains() {
 
+        return false;
     }
 
-    @Override
     public void indexOf() {
 
     }
 
-    @Override
-    public void contains(Object o) {
 
+    public int get(int index) {
+
+        return index;
     }
 
-    @Override
-    public void get(int index) {
-
-    }
-
-    @Override
     public boolean isEmpty() {
         return super.isEmpty();
+    }
+
+    public Object[] toArray(){
+        return new Object[0];
     }
 
 }

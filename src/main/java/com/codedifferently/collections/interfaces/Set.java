@@ -1,10 +1,10 @@
 package com.codedifferently.collections.interfaces;
 
 public interface Set<E> {
-   void add();
-   void contains();
+   Object add();
+   boolean contains();
    void indexOf();
-   void contains(E e);
-   void get(int index);
+   int get(int index);
+
 
 }
