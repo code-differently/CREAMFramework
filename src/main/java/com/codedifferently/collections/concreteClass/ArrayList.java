@@ -29,22 +29,6 @@ public class ArrayList<E> implements List<E> {
 
     }
 
-//    Object[] newData = new Object[list.length+1];
-//    for(int i =0; i < index; i++)
-//    {
-//        newData[i] = list[i];
-//    }
-//    newData[index] = element;
-//    for(int i = index; i < list.length; i++)
-//    {
-//        newData[i+1] = list[i];
-//    }
-
-
-
-
-
-
 
     @Override
     public void removeElement(int index) {
