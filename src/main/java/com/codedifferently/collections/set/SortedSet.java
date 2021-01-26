@@ -1,51 +1,62 @@
 package com.codedifferently.collections.set;
-
-import com.codedifferently.collections.Collection;
 import com.codedifferently.collections.interfaces.Set;
+import java.util.TreeSet;
 
-import java.util.ArrayList;
+public class SortedSet<Integer> implements Set<Integer> {
 
-public class SortedSet<E> extends Collection implements Set {
 
-    private ArrayList<E> list;
+    private TreeSet<Integer> sSet;
     private int size;
-    private Object E;
 
     public SortedSet(){
-        list = new ArrayList<>();
+        sSet = new TreeSet<Integer>();
         size = 0;
-        this.E = "";
+
+
     }
     public int size(){
         return 0;
     }
 
-    public ArrayList<E> getList() {
-        return list;
+    public TreeSet<Integer> getList() {
+        return sSet;
     }
 
-    public Object add(){
-        list.add(0,(E)"Thing");
-        list.add(1,(E)"Any string will do");
-        list.add(2, (E)"Another one");
+    @Override
+    public Integer Set(Integer input) {
         return null;
     }
+
+    public boolean add(){
+        return false;
+    }
+
+    @Override
+    public boolean contains() {
+        return false;
+    }
+
 
     public void indexOf() {
 
     }
 
-    public E remove() {
-        list.remove(0);
-        return null;
+    public boolean remove() {
+        sSet.remove("Thing");
+        return false;
     }
 
     public int get(int index) {
         return index;
     }
 
+    @Override
+    public void list() {
+
+    }
+
     public boolean isEmpty() {
-        if (list.size() == 0) {
+        if (sSet.size() == 0) {
             return true;
         } else {
             return false;
@@ -55,9 +66,9 @@ public class SortedSet<E> extends Collection implements Set {
         return new Object[0];
     }
 
-    public boolean contains(){
-        return true;
-    }
 
+    public void clear(){
+
+    }
 
 }

@@ -6,7 +6,6 @@ import org.junit.Test;
 
 public class SortedSetTest {
 
-    private static final Object E = 3;
     SortedSet sortedSet = new SortedSet();
     @Before
     public void setUp() throws Exception {
@@ -27,8 +26,8 @@ public class SortedSetTest {
 
     @Test
     public void add() {
-        Object expected = E;
-        Object actual = sortedSet.add();
+        boolean expected = false;
+        boolean actual = sortedSet.add();
 
         Assert.assertEquals(expected,actual);
     }
@@ -39,6 +38,10 @@ public class SortedSetTest {
 
     @Test
     public void remove() {
+        boolean expected = false;
+        boolean actual = sortedSet.remove();
+
+        Assert.assertEquals(expected,actual);
     }
 
     @Test
