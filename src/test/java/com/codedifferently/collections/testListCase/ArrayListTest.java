@@ -8,8 +8,7 @@ import org.junit.Test;
 
 public class ArrayListTest {
   List arrayList;
-  int interl;
-  Integer inte;
+
 
 @Before
     public void setup(){
@@ -20,14 +19,21 @@ public class ArrayListTest {
 @Test
 //when the list is not empty
     public void getElement(){
-    ArrayList<Integer> arrayList = new ArrayList<Integer>();
-    //Given
-    int num=2;
+//    ArrayList<Integer> arrayList = new ArrayList<Integer>();
+    String name1="Aakriti";
+    String name2="Amirah";
+    String name3="Linda";
+    String name4="Celita";
+    String name5="Lachelle";
 
-    arrayList.addElement(num);
+    arrayList.addElement(1,name1);
+    arrayList.addElement(2,name2);
+    arrayList.addElement(3,name3);
+    arrayList.addElement(4,name4);
+    arrayList.addElement(5,name5);
     //when
-    int expected = (int) arrayList.getElementByIndex(num);
-    int actual =2;
+    String expected = "Aakriti";
+    String actual = (String) arrayList.getElementByIndex(1);
     //Then
     Assert.assertEquals(expected,actual);
 
@@ -36,13 +42,22 @@ public class ArrayListTest {
     @Test
     public void addElementTest(){
 
-        //Given
-        int num=3;
+        String name1="Aakriti";
+        String name2="Amirah";
+        String name3="Linda";
+        String name4="Celita";
+        String name5="Lachelle";
 
-        arrayList.addElement(num);
+        arrayList.addElement(1,name1);
+        arrayList.addElement(2,name2);
+        arrayList.addElement(3,name3);
+        arrayList.addElement(4,name4);
+        arrayList.addElement(5,name5);
+
         //when
-        boolean  actual=  arrayList.containsElement(num);
+        boolean  actual=  arrayList.containsElement(name1);
         boolean expected =true;
+
         //Then
         Assert.assertEquals(expected,actual);
 
@@ -51,13 +66,20 @@ public class ArrayListTest {
     @Test
     public void removeElementTest(){
 
-        //Given
-        int num=3;
+        String name1="Aakriti";
+        String name2="Amirah";
+        String name3="Linda";
+        String name4="Celita";
+        String name5="Lachelle";
 
-        arrayList.removeElement(num);
+        arrayList.addElement(1,name1);
+        arrayList.addElement(2,name2);
+        arrayList.addElement(3,name3);
+        arrayList.addElement(4,name4);
+        arrayList.addElement(5,name5);
 
         //when
-        boolean  actual=  arrayList.containsElement(num);
+        boolean  actual=  arrayList.containsElement(name1);
         boolean expected =true;
         //Then
         Assert.assertEquals(expected,actual);
@@ -68,16 +90,21 @@ public class ArrayListTest {
     @Test
     public void size(){
 
-        //Given
-        int num1=3;
-        int num2=4;
+        String name1="Aakriti";
+        String name2="Amirah";
+        String name3="Linda";
+        String name4="Celita";
+        String name5="Lachelle";
 
-        arrayList.addElement(num1);
-        arrayList.addElement(num2);
+        arrayList.addElement(1,name1);
+        arrayList.addElement(2,name2);
+        arrayList.addElement(3,name3);
+        arrayList.addElement(4,name4);
+        arrayList.addElement(5,name5);
 
         //when
         int  actual=  arrayList.sizeOfList();
-        int  expected =0;
+        int  expected =5;
         //Then
         Assert.assertEquals(expected,actual);
 
@@ -87,15 +114,20 @@ public class ArrayListTest {
     @Test
     public void containsElementTest(){
 
-        //Given
-        int num1=3;
-        int num2=4;
+        String name1="Aakriti";
+        String name2="Amirah";
+        String name3="Linda";
+        String name4="Celita";
+        String name5="Lachelle";
 
-        arrayList.addElement(num1);
-        arrayList.addElement(num2);
+        arrayList.addElement(1,name1);
+        arrayList.addElement(2,name2);
+        arrayList.addElement(3,name3);
+        arrayList.addElement(4,name4);
+        arrayList.addElement(5,name5);
 
         //when
-        boolean  actual=  arrayList.containsElement(num1);
+        boolean  actual=  arrayList.containsElement(name2);
         boolean  expected =true;
         //Then
         Assert.assertEquals(expected,actual);
@@ -103,18 +135,39 @@ public class ArrayListTest {
     }
 
     @Test
-    public void isListEmptyTest(){
+    public void isListEmptyTest1(){
 
-        //Given
-        int num1=3;
-        int num2=4;
 
-        arrayList.addElement(num1);
-        arrayList.addElement(num2);
 
         //when
         boolean  actual=  arrayList.isListEmpty();
         boolean  expected =true;
+
+        //Then
+        Assert.assertEquals(expected,actual);
+
+    }
+
+
+    @Test
+    public void isListEmptyTest2(){
+
+        //Given
+        String name1="Aakriti";
+        String name2="Amirah";
+        String name3="Linda";
+        String name4="Celita";
+        String name5="Lachelle";
+
+        arrayList.addElement(1,name1);
+        arrayList.addElement(2,name2);
+        arrayList.addElement(3,name3);
+        arrayList.addElement(4,name4);
+        arrayList.addElement(5,name5);
+
+        //when
+        boolean  actual=  arrayList.isListEmpty();
+        boolean  expected =false;
 
         //Then
         Assert.assertEquals(expected,actual);

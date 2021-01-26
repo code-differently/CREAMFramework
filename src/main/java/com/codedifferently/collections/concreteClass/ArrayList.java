@@ -9,61 +9,80 @@ public class ArrayList<E> implements List<E> {
     private E[] array;
 
     public ArrayList() {
-        this.array = (E[]) new Object[0];
+
+        this.array = (E[]) new Object[9];
     }
 
     @Override
     public E getElementByIndex(int index) {
-if(array[index]!=null){
+    if(array[index]!=null){
     return array[index];
-}else {
+        }else {
     throw new IndexOutOfBoundsException();
 }
     }
 
     @Override
-    public boolean addElement(E element) {
-//        for(int i=0;i<array.length;i++){
-//
-//        }
-        return true;
+    public void addElement(int index, E element) {
+
+            array[index]=element;
+
     }
 
+//    Object[] newData = new Object[list.length+1];
+//    for(int i =0; i < index; i++)
+//    {
+//        newData[i] = list[i];
+//    }
+//    newData[index] = element;
+//    for(int i = index; i < list.length; i++)
+//    {
+//        newData[i+1] = list[i];
+//    }
+
+
+
+
+
+
+
     @Override
-    public E removeElement(E element) {
-        return element;
-    }
+    public void removeElement(int index) {
+    array[index]=null;
+}
+
+
 
     @Override
     public int sizeOfList() {
+        int count=0;
         for(int i=0;i<array.length;i++){
             if(array[i]!=null){
-                return array.length;
+                count++;
             }
 
         }
-        throw new IndexOutOfBoundsException() ;
+        return count;
     }
 
     @Override
-    public boolean containsElement(Object element) {
+    public boolean containsElement(E element) {
         for (int i=0;i<array.length;i++){
-            if(array.equals(element)){
+            if( array[i]!=null && array[i].equals(element)){
                 return true;
-            }else {
-                return false;
             }
         }
-        return true;
+        return false;
     }
 
     @Override
     public boolean isListEmpty() {
-        if (array == null) {
+        for (int i=0;i<array.length;i++) {
+            if(array[i]!=null) {
+                return false;
+            }
+        }
             return true;
-        }
-        else {
-            return false;
-        }
+
     }
 }
