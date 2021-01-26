@@ -1,15 +1,14 @@
 package com.codedifferently.collections.interfaces;
 
-public interface Set<T> {
-   T Set(T input);
-   boolean add();
-   boolean remove();
+public interface Set<E> {
+
+   boolean add(E e);
+   boolean remove(Object o);
    boolean isEmpty();
-   boolean contains();
-   void indexOf();
+   boolean contains(Object o);
+   boolean equals(Object o);
    void clear();
-   void list();
    Object[] toArray();
    int size();
-   int get(int index);
+
 }

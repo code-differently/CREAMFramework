@@ -6,6 +6,7 @@ import org.junit.Test;
 
 public class SortedSetTest {
 
+    private static final Object E = 0;
     SortedSet sortedSet = new SortedSet();
     @Before
     public void setUp() throws Exception {
@@ -19,34 +20,29 @@ public class SortedSetTest {
         Assert.assertEquals(expected,actual);
     }
 
-    @Test
-    public void getList() {
-
-    }
-
-    @Test
+        @Test
     public void add() {
         boolean expected = false;
-        boolean actual = sortedSet.add();
+        boolean actual = sortedSet.add(E);
 
         Assert.assertEquals(expected,actual);
     }
-
     @Test
-    public void indexOf() {
+    public void addStringTest(){
+        boolean expected = false;
+        boolean actual = sortedSet.addString(E);
+
+        Assert.assertEquals(expected,actual);
     }
 
     @Test
     public void remove() {
         boolean expected = false;
-        boolean actual = sortedSet.remove();
+        boolean actual = sortedSet.remove(E);
 
         Assert.assertEquals(expected,actual);
     }
 
-    @Test
-    public void get() {
-    }
 
     @Test
     public void isEmpty() {
@@ -59,6 +55,10 @@ public class SortedSetTest {
 
     @Test
     public void toArray() {
+        Object[] expected = {24,45};
+        Object[] actual = sortedSet.toArray();
+
+        Assert.assertEquals(expected,actual);
     }
 
     @Test
