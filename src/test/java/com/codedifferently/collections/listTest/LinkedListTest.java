@@ -1,29 +1,63 @@
 package com.codedifferently.collections.listTest;
 
 import com.codedifferently.collections.list.ArrayList;
+import com.codedifferently.collections.list.EmptyLinkedListException;
 import com.codedifferently.collections.list.LinkedList;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.sql.SQLOutput;
+
 
 public class LinkedListTest {
 
-@Test
-    public void currentNodeTest(){
-    LinkedList linkedList = new LinkedList( "Tim", null);
-    String expected = "Tim";
-    String actual = linkedList.currentNode();
+    @Test
+    public void containsTest(){
+        LinkedList linked = new LinkedList();
+        linked.addHead("Paul");
+        Assert.assertTrue(linked.contains("Paul"));
 
-    Assert.assertEquals(expected, actual);
     }
 
-@Test
-    public void addNode(){
-    LinkedList linky = new LinkedList("Tim", null);
-    LinkedList linked = new LinkedList("Paul", linky);
-    String expected = "Paul Tim";
-    String actual = linked.currentNode();
-}
+    @Test
+    public void printNodeContentTest(){
+        LinkedList linked = new LinkedList();
+        linked.addHead("Paul");
+        String expected = "Paul";
+        String actual = linked.printNodeContent();
+        Assert.assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void addHeadTest(){
+        LinkedList linked = new LinkedList();
+        linked.addHead("Paul");
+        Assert.assertTrue(linked.contains("Paul"));
+    }
+
+    @Test
+    public void addTailTest() throws EmptyLinkedListException {
+        LinkedList linked = new LinkedList();
+        linked.addHead("Paul");
+        linked.addTail("Amy");
+        Assert.assertTrue(linked.contains("Amy"));
+
+    }
+
+    @Test
+    public void DeleteHeadTest() throws EmptyLinkedListException {
+        LinkedList linked = new LinkedList();
+        linked.addHead("Paul");
+        linked.deleteHead();
+        Assert.assertFalse(linked.contains("Paul"));
+    }
+
+
+
+
+
+
+
+
 
 }
