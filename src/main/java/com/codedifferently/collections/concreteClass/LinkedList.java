@@ -82,14 +82,13 @@ public class LinkedList<E> implements List <E> {
         if (head == null) {
             return 0;
         }
-
-
         Node currentNode =head;
 
       while(currentNode!=null){
             currentNode = currentNode.getNextNode();
 
             if(currentNode ==null) {
+
             }else {
                 count++;
             }
@@ -100,16 +99,20 @@ public class LinkedList<E> implements List <E> {
 
     @Override
     public boolean containsElement(Object element) {
-        Node currentNode = null;
-        if(head==null){
-            return false;
-        }
-        if(head != null){
-            currentNode=head.getNextNode();
-            if(currentNode.equals(element)){
+        // step 1: head is not null
+        /// step 2: currentnode = head;
+        // while (currentnode != null)
+
+
+
+        Node currentNode = head;
+        while(currentNode != null){
+
+
+            if(currentNode.getData().equals(element)){
                 return true;
         }
-
+            currentNode=currentNode.getNextNode();
     }
         return false;
     }
