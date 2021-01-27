@@ -68,9 +68,9 @@ public class LinkedList<E> implements List <E> {
                 if(currentNode.getNextNode()==null){
                     result= 0;
                 }
-                currentNode = currentNode.getNextNode().getNextNode();
+                currentNode = currentNode.getNextNode();
             }
-            // return currentNode.getData();
+            currentNode.setNextNode(currentNode.getNextNode().getNextNode());
         }
         count--;
     }
