@@ -37,9 +37,9 @@ public class UnsortedSetTest {
     @Test
     public void addDuplicateTest() throws Exception{
         int sizeBeforeAdd = name.size();
-        name.add("sam");
+        name.add("Sam");
         int sizeAfterAdd = name.size();
-        Assert.assertNotEquals(sizeBeforeAdd,sizeAfterAdd);
+        Assert.assertEquals(sizeBeforeAdd,sizeAfterAdd);
     }
 
     @Test

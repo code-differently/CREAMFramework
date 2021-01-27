@@ -76,9 +76,7 @@ public class UnsortedSet implements Set {
     public boolean contains(Object o) {
         int index = hashFunction(o.hashCode());
         Entry current = uSet[index];
-
         while (current != null) {
-
             if (current.key.equals(o)) {
                 return true;
             }
