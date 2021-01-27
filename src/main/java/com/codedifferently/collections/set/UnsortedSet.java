@@ -2,65 +2,95 @@ package com.codedifferently.collections.set;
 
 import com.codedifferently.collections.interfaces.Set;
 
-import java.util.ArrayList;
 
-
-public class UnsortedSet<E> implements Set<E> {
-
-    private ArrayList<Integer> uSet;
-    private int size;
-
+public class UnsortedSet implements Set {
 
     public UnsortedSet() {
-        this.size = 5;
-        this.uSet = new ArrayList<Integer>();
 
     }
 
+    public static class Entry {
+        public Entry next;
+        Object key;
+
+    }
+    private Entry[] uSet;
+
+    private int size;
+
+    public UnsortedSet(int capacity) {
+        this.size = 0;
+        this.uSet = new Entry[capacity];
+
+    }
+
+    private int hashFunction(int hashCode){
+        int index = hashCode;
+        if(index < 0){
+            index -= index;
+        }
+        return index % uSet.length;
+    }
+
     @Override
-    public boolean add(Object e) {
-        uSet.add(0,567);
-        uSet.add(1,689);
-        uSet.add(2,1024);
-       return false;
+    public boolean add(Object o) {
+        int index = hashFunction(o.hashCode());
+        Entry current = uSet[index];
+        while (current != null) { // if Object is already in set
+              if (current.key.equals(o)) {
+                return false;
+            }
+              current = current.next; // otherwise visit next entry in the uSet
+        }
+        Entry entry = new Entry();
+        entry.key = o; //if uSet is empty current entry is null otherwise it goes to next entry
+        entry.next = uSet[index];
+        uSet[index] = entry;
+        size++;
+       return true;
     }
 
     @Override
     public boolean remove(Object o) {
-        uSet.remove(567);
-        uSet.remove(1);
-        return false;
-    }
+        int index = hashFunction(o.hashCode());
+        Entry current = uSet[index];
+        Entry previous = null;
 
-
-    public boolean contains() {
-        if(!uSet.contains("Sam") ||!uSet.contains("Victor") || !uSet.contains("Alberto") ){
-        return false;
-        }else{
-            return true;
+        while(current != null){
+            if(current.key.equals(o)){
+                if(previous == null){
+                    uSet[index] = current.next;
+                }else{
+                    previous.next = current.next;
+                }
+                size--;
+                return true;
+            }
+            previous = current;
+            current = current.next;
         }
+        return false; //Since there is no object found to remove
     }
 
-    public boolean isEmpty() {
-        if(uSet.size() == 0) {
-            return false;
-        }else{
-            return true;
-        }
-    }
-
-    @Override
+      @Override
     public boolean contains(Object o) {
-        return false;
+        int index = hashFunction(o.hashCode());
+        Entry current = uSet[index];
+
+        while (current != null) {
+
+            if (current.key.equals(o)) {
+                return true;
+            }
+            current = current.next; // otherwise go to next node in the uSet
+        }
+        return false;   // if no element found
     }
 
     @Override
     public int size() {
-        return 5;
+        return size;
     }
 
 
-    public Integer get(int i) {
-        return 0;
-    }
 }

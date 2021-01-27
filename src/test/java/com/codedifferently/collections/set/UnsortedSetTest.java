@@ -1,65 +1,65 @@
 package com.codedifferently.collections.set;
 
+import com.codedifferently.collections.interfaces.Set;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class UnsortedSetTest<E> {
-    private static final Object E = 0;
-    UnsortedSet<E> unsortedSet = new UnsortedSet();
+public class UnsortedSetTest {
+
+    private static Set name;
+    private static Set id;
+
     @Before
-    public void setUp() {
-    unsortedSet.contains("Sami");
-    int size = 5;
+    public  void setUp() throws Exception{
+        name = new UnsortedSet(120);
+
+        name.add("Sam");
+        name.add("Victor");
+        name.add("Alberto");
+
+        id = new UnsortedSet(120);
+
+        id.add(20);
+        id.add(30);
+        id.add(40);
     }
 
       @Test
-    public void addTest() {
-        boolean expected = false;
-        boolean actual = unsortedSet.add((E) E);
-
-        Assert.assertEquals(expected,actual);
-
+    public void addObjectTest() throws Exception{
+        int sizeBeforeAdd = name.size();
+        name.add("Kenyon");
+        Assert.assertTrue(name.contains("Kenyon"));
+        int sizeAfterAdd = name.size();
+        Assert.assertNotEquals(sizeBeforeAdd,sizeAfterAdd);
     }
 
     @Test
-    public void remove(){
-        boolean expected = false;
-        boolean actual = unsortedSet.remove(E);
-
-        Assert.assertEquals(expected,actual);
+    public void addDuplicateTest() throws Exception{
+        int sizeBeforeAdd = name.size();
+        name.add("sam");
+        int sizeAfterAdd = name.size();
+        Assert.assertNotEquals(sizeBeforeAdd,sizeAfterAdd);
     }
 
     @Test
-    public void isEmptyTest() {
-        boolean expected = false;
-        boolean actual = unsortedSet.isEmpty();
-
-        Assert.assertEquals(false,actual);
-
+    public void remove() throws Exception{
+        name.remove("Sam");
+        Assert.assertFalse(name.contains("Sam"));
     }
+
     @Test
     public void containsTest(){
-        unsortedSet.contains("Victor");
-        boolean expected = true;
-        boolean actual = unsortedSet.contains();
+        Assert.assertTrue(name.contains("Sam"));
 
-        Assert.assertEquals(true,actual);
     }
 
     @Test
-    public void SetTest(){
-        Integer expected = unsortedSet.size() - 5;
-        Integer actual = unsortedSet.get(0);
+    public void sizeTest() throws Exception{
+        int sizeBeforeAdd = name.size();
+        name.add("Corban");
+        int sizeAfterAdd = name.size();
 
-        Assert.assertEquals(expected,actual);
-    }
-
-    @Test
-    public void sizeTest(){
-        int expected = 5;
-        int actual = unsortedSet.size();
-
-        Assert.assertEquals(expected,actual);
+        Assert.assertNotEquals(sizeBeforeAdd,sizeAfterAdd);
     }
 }

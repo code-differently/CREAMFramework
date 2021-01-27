@@ -1,67 +1,88 @@
 package com.codedifferently.collections.set;
-import com.codedifferently.collections.DuplicateDataException;
+
 import com.codedifferently.collections.interfaces.Set;
-import java.util.ArrayList;
-import java.util.logging.Logger;
 
 
-public class SortedSet<E> implements Set<E> {
-    Logger logger = Logger.getGlobal();
-    private ArrayList<Integer> sSet;
-    private int size;
-
-
-    public SortedSet(){
-        this.sSet = new ArrayList<Integer>();
-        this.size = 2;
-
-        sSet.add(0, 24);
-        sSet.add(1, 45);
+public class SortedSet extends UnsortedSet implements Set{
+    private static class Entry {
+        public UnsortedSet.Entry next;
+        Object key;
 
     }
+    private UnsortedSet.Entry[] sSet;
+
+    private int size;
+    public SortedSet(int capacity){
+        super();
+        this.sSet = new UnsortedSet.Entry[capacity];
+        this.size = 0;
+    }
+    private int hashFunction(int hashCode){
+        int index = hashCode;
+        if(index < 0){
+            index -= index;
+        }
+        return index % sSet.length;
+    }
     public int size(){
-        sSet.size();
-        return 2;
+       return size;
     }
 
     @Override
     public boolean contains(Object o) {
+        int index = hashFunction(o.hashCode());
+        UnsortedSet.Entry current = sSet[index];
+        while(current != null){
+            if(current.key.equals(o)){
+                return true;
+            }
+            current = current.next;
+        }
         return false;
     }
 
-    public int get(int index) {
-        return index;
-    }
 
-    public boolean add(Object o) throws DuplicateDataException {
-     try {
-       if (sSet.contains(o)) throw new DuplicateDataException();
-       else {
-           sSet.add((Integer) o);
-           size++;
-       }
-   }catch (DuplicateDataException e){
-       logger.warning(e + " Duplicate data found");
-   }
-        return false;
+
+    public boolean add(Object o)  {
+     int index = hashFunction(o.hashCode());
+     UnsortedSet.Entry current = sSet[index];
+     while(current != null){
+         if(current.key.equals(o)){
+             return false;
+         }
+         current = current.next;
+     }
+     UnsortedSet.Entry entry = new UnsortedSet.Entry();
+     entry.key = o;
+     entry.next = sSet[index];
+     sSet[index] = entry;
+     size++;
+    return true;
     }
 
     @Override
     public boolean remove(Object o) {
-        sSet.remove(24);
+      int index = hashFunction(o.hashCode());
+        UnsortedSet.Entry current = sSet[index];
+        UnsortedSet.Entry previous = null;
+
+        while(current != null){
+            if(current.key.equals(o)){
+                if(previous == null){
+                    sSet[index] = current.next;
+                }else{
+                    previous.next = current.next;
+                }
+                size--;
+                return true;
+            }
+            previous = current;
+            current = current.next;
+        }
         return false;
     }
 
-    public boolean isEmpty() {
-        if(sSet.size() == 0){
-            return true;
-        } else {
-            return false;
-        }
-    }
-    public Integer[] toArray(Integer[] a){
-        Integer[] newSSet = sSet.toArray(new Integer[0]);
-        return a;
-    }
+
+
 
 }
