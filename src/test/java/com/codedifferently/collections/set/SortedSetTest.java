@@ -12,13 +12,13 @@ public class SortedSetTest {
 
     @Before
     public void setUp() throws Exception {
-        sortedName = new SortedSet(120);
+        sortedName = new SortedSet(128);
 
         sortedName.add("Sam");
         sortedName.add("Victor");
         sortedName.add("Alberto");
 
-        sortedId = new SortedSet(120);
+        sortedId = new SortedSet(128);
 
         sortedId.add(20);
         sortedId.add(30);

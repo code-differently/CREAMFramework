@@ -12,13 +12,13 @@ public class UnsortedSetTest {
 
     @Before
     public  void setUp() throws Exception{
-        name = new UnsortedSet(120);
+        name = new UnsortedSet(128);
 
         name.add("Sam");
         name.add("Victor");
         name.add("Alberto");
 
-        id = new UnsortedSet(120);
+        id = new UnsortedSet(128);
 
         id.add(20);
         id.add(30);
