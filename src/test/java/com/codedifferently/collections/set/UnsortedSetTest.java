@@ -13,21 +13,13 @@ public class UnsortedSetTest<E> {
     int size = 5;
     }
 
-    @Test
+      @Test
     public void addTest() {
         boolean expected = false;
         boolean actual = unsortedSet.add((E) E);
 
         Assert.assertEquals(expected,actual);
 
-    }
-
-    @Test
-    public void addIntegerTest(){
-        boolean expected = false;
-        boolean actual = unsortedSet.addInteger((E) E);
-
-        Assert.assertEquals(expected,actual);
     }
 
     @Test

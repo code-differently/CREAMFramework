@@ -2,49 +2,33 @@ package com.codedifferently.collections.set;
 
 import com.codedifferently.collections.interfaces.Set;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
+import java.util.ArrayList;
 
 
 public class UnsortedSet<E> implements Set<E> {
 
-    private HashSet<String> uSet;
-    private HashSet<Integer> uSet2;
+    private ArrayList<Integer> uSet;
     private int size;
 
-    //List<Integer> listNumbers = Arrays.asList(56,100,48,23,87);
 
     public UnsortedSet() {
-        size = 5;
-        uSet = new HashSet<String>();
-        uSet2 = new HashSet<Integer>();
-    }
+        this.size = 5;
+        this.uSet = new ArrayList<Integer>();
 
-    public E Set(E input) {
-        return null;
     }
-
 
     @Override
-    public boolean add(E e) {
-        uSet.add("Sam");
-        uSet.add("Victor");
-        uSet.add("Alberto");
-        return false;
-    }
-
-    public boolean addInteger(E e){
-        uSet2.add(567);
-        uSet2.add(689);
-        uSet2.add(1024);
-        return false;
+    public boolean add(Object e) {
+        uSet.add(0,567);
+        uSet.add(1,689);
+        uSet.add(2,1024);
+       return false;
     }
 
     @Override
     public boolean remove(Object o) {
-        uSet.remove("");
-        uSet2.remove(567);
+        uSet.remove(567);
+        uSet.remove(1);
         return false;
     }
 
@@ -55,16 +39,6 @@ public class UnsortedSet<E> implements Set<E> {
         }else{
             return true;
         }
-    }
-
-    @Override
-    public void clear() {
-
-    }
-
-    @Override
-    public Object[] toArray() {
-        return new Object[0];
     }
 
     public boolean isEmpty() {

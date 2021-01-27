@@ -1,19 +1,22 @@
 package com.codedifferently.collections.set;
+import com.codedifferently.collections.DuplicateDataException;
 import com.codedifferently.collections.interfaces.Set;
-import java.util.TreeSet;
+import java.util.ArrayList;
+import java.util.logging.Logger;
+
 
 public class SortedSet<E> implements Set<E> {
-
-
-    private TreeSet<Integer> sSet;
-    private TreeSet<String> sSet2;
+    Logger logger = Logger.getGlobal();
+    private ArrayList<Integer> sSet;
     private int size;
 
-    public SortedSet(){
-        sSet = new TreeSet<Integer>();
-        sSet2 = new TreeSet<String>();
-        size = 2;
 
+    public SortedSet(){
+        this.sSet = new ArrayList<Integer>();
+        this.size = 2;
+
+        sSet.add(0, 24);
+        sSet.add(1, 45);
 
     }
     public int size(){
@@ -26,34 +29,31 @@ public class SortedSet<E> implements Set<E> {
         return false;
     }
 
-
     public int get(int index) {
         return index;
     }
 
-
-    public boolean add(E e) {
-        sSet.add(24);
-        sSet.add(45);
-        return false;
-    }
-
-    public boolean addString(E e){
-        sSet2.add("Victor");
-        sSet2.add("Alberto");
-
+    public boolean add(Object o) throws DuplicateDataException {
+     try {
+       if (sSet.contains(o)) throw new DuplicateDataException();
+       else {
+           sSet.add((Integer) o);
+           size++;
+       }
+   }catch (DuplicateDataException e){
+       logger.warning(e + " Duplicate data found");
+   }
         return false;
     }
 
     @Override
     public boolean remove(Object o) {
-        sSet2.remove("Alberto");
         sSet.remove(24);
         return false;
     }
 
     public boolean isEmpty() {
-        if (sSet.size() == 0) {
+        if(sSet.size() == 0){
             return true;
         } else {
             return false;
@@ -61,22 +61,7 @@ public class SortedSet<E> implements Set<E> {
     }
     public Integer[] toArray(Integer[] a){
         Integer[] newSSet = sSet.toArray(new Integer[0]);
-        return newSSet;
-    }
-
-
-    public void clear(){
-
-    }
-
-    @Override
-    public Object[] toArray() {
-        Object[] arr = sSet.toArray();
-        int i;
-        for (i = 0; i < arr.length; i++) {
-            return new Object[]{arr[i]};
-        }
-        return (Object[]) arr[i];
+        return a;
     }
 
 }

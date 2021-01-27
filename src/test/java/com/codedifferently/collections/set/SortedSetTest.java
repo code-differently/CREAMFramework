@@ -8,31 +8,27 @@ public class SortedSetTest {
 
     private static final Object E = 0;
     SortedSet sortedSet = new SortedSet();
+    private SortedSetTest sSet;
+
     @Before
     public void setUp() throws Exception {
     }
 
     @Test
     public void size() {
-        int expected = 0;
+        int expected = 2;
         int actual = sortedSet.size();
 
-        Assert.assertEquals(expected,actual);
+        Assert.assertEquals(expected, actual);
     }
 
-        @Test
-    public void add() {
+    @Test
+    public void addDuplicateValue() {
+
         boolean expected = false;
         boolean actual = sortedSet.add(E);
 
-        Assert.assertEquals(expected,actual);
-    }
-    @Test
-    public void addStringTest(){
-        boolean expected = false;
-        boolean actual = sortedSet.addString(E);
-
-        Assert.assertEquals(expected,actual);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -40,28 +36,24 @@ public class SortedSetTest {
         boolean expected = false;
         boolean actual = sortedSet.remove(E);
 
-        Assert.assertEquals(expected,actual);
+        Assert.assertEquals(expected, actual);
     }
 
 
     @Test
     public void isEmpty() {
-        boolean expected = true;
+    boolean expected = true;
         boolean actual = sortedSet.isEmpty();
 
-        Assert.assertEquals(expected,actual);
+        Assert.assertEquals(expected, actual);
 
     }
 
-    @Test
-    public void toArray() {
-        Object[] expected = {24,45};
-        Object[] actual = sortedSet.toArray();
-
-        Assert.assertEquals(expected,actual);
-    }
-
-    @Test
+     @Test
     public void contains() {
+        boolean expected = false;
+        boolean actual = sortedSet.contains(E);
+
+        Assert.assertEquals(expected, actual);
     }
 }
