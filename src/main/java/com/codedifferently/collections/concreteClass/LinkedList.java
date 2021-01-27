@@ -100,7 +100,17 @@ public class LinkedList<E> implements List <E> {
 
     @Override
     public boolean containsElement(Object element) {
+        Node currentNode = null;
+        if(head==null){
+            return false;
+        }
+        if(head != null){
+            currentNode=head.getNextNode();
+            if(currentNode.equals(element)){
+                return true;
+        }
 
+    }
         return false;
     }
 
